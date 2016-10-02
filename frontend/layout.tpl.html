@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="title" content="Video Comment Demo">
+    <meta name="description" content="Video Comment Demo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ooyala Player V4 Demo</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons|Montserrat">
+    <link rel="stylesheet" href="//code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+    <script defer src="//code.getmdl.io/1.2.1/material.min.js"></script>
+    <link rel="stylesheet" href="/styles/app.css">
+  </head>
+  <body>
+    <div class="mdl-layout__container" id="myoo-app">
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-drawer">
+        <header class="myoo-header mdl-layout__header mdl-layout__header--waterfall">
+          <div class="mdl-layout__header-row">
+            <a href="https://www.ooyala.com">
+              <span class="myoo-header__title mdl-layout-title">
+                <img class="myoo-header__title--logo" src="/images/logo.png" />OOYALA
+              </span>
+            </a>
+            <div class="mdl-layout-spacer"></div>
+            <div class="myoo-navigation-container">
+              <div class="myoo-navigation mdl-navigation">
+                <a class="mdl-navigation__link" href={this.props.urls.search}>
+                  <span class="myoo-sprite__search">search</span>
+                  <span class="myoo-display__sp--none">Serch Video</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="myoo-drawer mdl-layout__drawer">
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="/">Home</a>
+            <a class="mdl-navigation__link" href="/logout">Log out</a>
+            <a class="mdl-navigation__link" href="https://www.ooyala.com">Ooyala</a>
+          </nav>
+        </div>
+        <main class="mdl-layout__content">
+          {% block content %}
+          {% endblock %}
+          <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer--left-section">
+              <ul class="mdl-mini-footer--link-list">
+                <li><a href="http://support.ooyala.com/developers/documentation/concepts/pbv4_about.html">Player V4</a></li>
+                <li><a href="http://support.ooyala.com/developers/documentation/concepts/book_discovery_dg.html">Discovery</a></li>
+              </ul>
+              <div class="mdl-logo">© 2016 OOYALA inc.</div>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

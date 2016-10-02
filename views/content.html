@@ -1,0 +1,31 @@
+{% extends 'layout.tpl.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="http://player.ooyala.com/static/v4/stable/{{version}}/skin-plugin/html5-skin.min.css">
+<script src="http://player.ooyala.com/static/v4/stable/{{version}}/core.min.js"></script>
+<script src="http://player.ooyala.com/static/v4/stable/{{version}}/skin-plugin/html5-skin.min.js"></script>
+<script src="http://player.ooyala.com/static/v4/stable/{{version}}/video-plugin/main_html5.min.js"></script>
+<script src="http://player.ooyala.com/static/v4/stable/{{version}}/video-plugin/bit_wrapper.min.js"></script>
+<script src="http://player.ooyala.com/static/v4/stable/{{version}}/video-plugin/osmf_flash.min.js"></script>
+<script src="http://player.ooyala.com/static/v4/stable/{{version}}/other-plugin/discovery_api.min.js"></script>
+<div class="myoo-player-container">
+  <div id="container" class="myoo-player"></div>
+  <script>
+  OO.ready(() => {
+    OO.Player.create(
+      'container',
+      '{{embedCode}}',
+      {
+        pcode: '{{pcode}}',
+        playerBrandingId: '{{id}}',
+        debug: true,
+        skin: {
+          // config contains the configuration setting for player skin. Change this path to your local config when necessary.
+          config: 'http://player.ooyala.com/static/v4/stable/{{version}}/skin-plugin/skin.json'
+        }
+      }
+    );
+  });
+  </script>
+</div>
+{% endblock %}
