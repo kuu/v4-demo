@@ -3,7 +3,7 @@ const debug = require('debug');
 const discovery = require('../models/discovery');
 
 const router = express.Router();
-const print = debug('vidcom');
+const print = debug('v4demo');
 
 router.get('/', (req, res) => {
   print(`/ called`);

@@ -1,9 +1,10 @@
 const express = require('express');
 const debug = require('debug');
 const config = require('config');
+const assets = require('../models/assets');
 
 const router = express.Router();
-const print = debug('vidcom');
+const print = debug('v4demo');
 
 router.get('/:id', (req, res) => {
   const embedCode = req.params.id;
@@ -15,8 +16,18 @@ router.get('/:id', (req, res) => {
     res.redirect('/auth');
     return;
   }
-  const {pcode, id, version} = config.player;
-  res.render('content', {embedCode, pcode, id, version});
+  assets.getChapters(embedCode)
+  .then(chapters => {
+    const {pcode, id, version} = config.player;
+    let chaptersJson;
+    try {
+      chaptersJson = JSON.stringify(chapters);
+    } catch (err) {
+      console.log(`${err.message} ${err.stack}`);
+      chaptersJson = '[]';
+    }
+    res.render('content', {embedCode, pcode, id, version, chapters: chaptersJson});
+  });
 });
 
 module.exports = router;

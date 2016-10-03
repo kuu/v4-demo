@@ -107,7 +107,7 @@ gulp.task('extras', () => {
     'frontend/*.*',
     'frontend/vendor/**/*.*',
     '!frontend/*.html',
-    'node_modules/carousel-js/dist/carousel-min.js'
+    'custom-skin/build/**/*'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
